@@ -1,6 +1,6 @@
 node('master') {
     stage('Git Checkout') {
-    git branch: 'master', 'https://github.com/jyotiprasad06/python-project.git'
+    git branch: 'master', url:'https://github.com/jyotiprasad06/python-project.git'
     }
     stage('Python build') {
         sh 'python3 -m py_compile sources/add2vals.py sources/calc.py' 
