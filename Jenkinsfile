@@ -12,4 +12,8 @@ node('master') {
     stage('Publishing Test Report') {
         junit skipPublishingChecks: true, allowEmptyResults: true, testResults: 'test-reports/results.xml'
     }
+    stage('Archiving Artifacts') {
+        sh 'pyinstaller --onefile sources/add2vals.py'
+        archiveArtifacts 'dist/add2vals'
+    }
 }
