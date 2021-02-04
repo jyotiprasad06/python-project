@@ -9,4 +9,7 @@ node('master') {
     stage('Python Test') {
         sh 'py.test --junit-xml test-reports/results.xml sources/test_calc.py'
     }
+    stage('Publishing Test Report') {
+        junit skipPublishingChecks: true, allowEmptyResults: true, testResults: 'test-reports/results.xml'
+    }
 }
