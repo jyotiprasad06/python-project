@@ -17,6 +17,6 @@ node('master') {
         archiveArtifacts 'dist/add2vals'
     }
     stage('Deploy to PyPi server') {
-        twine upload --repository-url http://ec2-18-222-222-169.us-east-2.compute.amazonaws.com:8080 dist/*
+        sh 'twine upload --repository-url http://ec2-18-222-222-169.us-east-2.compute.amazonaws.com:8080 dist/*'
     }
 }
